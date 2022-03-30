@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const userRouter = require('./router/user.router');
+const categoryRouter = require('./router/category.router');
 const cors = require('cors')
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/category", categoryRouter)
 app.use(userRouter)
 app.listen(process.env.PORT || 3000,
     () => console.log("Server is running..."));
