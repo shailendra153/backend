@@ -2,7 +2,7 @@ const Category = require('../model/category.model');
 const { validationResult } = require('express-validator');
 exports.saveCategory = (request, response, next) => {
     console.log(request.body)
-    console.log(request.file.filename)
+    console.log(request.file)
     const errors = validationResult(request);
     if (!errors.isEmpty())
         return response.status(400).json({ errors: errors.array() });
