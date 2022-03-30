@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const userRouter = require('./router/user.router');
+const cors = require('cors')
 
 const app = express();
 mongoose.connect("mongodb+srv://root:root@cluster0.gffjq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
@@ -12,6 +13,7 @@ mongoose.connect("mongodb+srv://root:root@cluster0.gffjq.mongodb.net/myFirstData
     .catch(err => {
         console.log(err);
     });
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
