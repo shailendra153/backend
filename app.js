@@ -17,7 +17,6 @@ mongoose.connect("mongodb+srv://root:root@cluster0.gffjq.mongodb.net/myFirstData
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, "public")));
 app.use("/category", categoryRouter)
 app.use(userRouter)
 app.listen(process.env.PORT || 3000,
